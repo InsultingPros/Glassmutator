@@ -14,6 +14,11 @@
 class GH_PlayerController extends KFPlayerController;
 
 
+// disable perk system, restore 2012 state
+simulated function SendSelectedVeterancyToServer(optional bool bForceChange);
+function SelectVeterancy(class<KFVeterancyTypes> VetSkill, optional bool bForceChange);
+
+
 function SetPawnClass(string inClass, string inCharacter)
 {
   super.SetPawnClass(inClass, inCharacter);

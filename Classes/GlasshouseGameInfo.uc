@@ -133,6 +133,7 @@ function TileDied(GlassMoverPlus Tile, Actor Killer)
   }
 }
 
+
 // We only want to be doing this once - Store a list of all the GlassMovers in the map besides this one
 function CacheTiles()
 {
@@ -235,7 +236,7 @@ function FindHighestSpawnPoints(byte TeamIdx)
       {
         if (P.DrawType == P.default.DrawType)
         {
-          P.SetDrawType(DT_None);
+          P.SetDrawType(DT_none);
         }
       }
     }
@@ -860,14 +861,45 @@ function AmmoPickedUp(KFAmmoPickup PickedUp)
 // }
 
 
+// fix log spam
+static function Texture GetRandomTeamSymbol(int base)
+{
+  local string SymbolName;
+  local int SymbolIndex, RawIndex;
+  local array<string> TeamSymbols;
+	local texture Result;
+
+  class'CacheManager'.static.GetTeamSymbolList(TeamSymbols, true);
+
+  // none!
+  if (TeamSymbols.length == 0)
+  {
+    // warn("TeamSymbols.length was 0!");
+    return none;
+  }
+
+  RawIndex = Rand(TeamSymbols.Length - base);
+  SymbolIndex = base + RawIndex;
+  if (SymbolIndex >= TeamSymbols.Length)
+    SymbolIndex = RawIndex;
+
+	SymbolName = TeamSymbols[SymbolIndex];
+  result = Texture(DynamicLoadObject(SymbolName, class'Texture'));
+
+  if (result == none)
+		result = Texture(DynamicLoadObject(TeamSymbols[0], class'Texture'));
+  if (result == none)
+    warn("No Team Symbol! (TeamSymbols[0] is invalid)");
+  return result;
+}
+
+
 defaultproperties
 {
   GameName="Glasshouse"
   Description="In a world where buildings are constructed from the flimsiest materials imagineable, a new hero will arise! Or fall.  And go splat."
   Acronym="GH"
   HUDType="Glassmutator.HUD_Glasshouse"
-  // let's add this to prevent log spam
-  bEnableStatLogging=false
   ZEDTimeDuration=4.000000
   RandomZombieSpawnInterval=60.000000
   MaxRandomZombiesPerTeam=1

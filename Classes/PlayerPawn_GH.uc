@@ -74,10 +74,10 @@ defaultproperties
   RequiredEquipment(0)="Glassmutator.M79GrenadeLauncher_GH"
   RequiredEquipment(1)="KFMod.Frag"
   RequiredEquipment(2)="KFMod.Syringe"
-  // RequiredEquipment(3)=
-  // RequiredEquipment(4)=
-  bCanWalkOffLedges=True
-  bDirectHitWall=True
+  RequiredEquipment(3)=""
+  RequiredEquipment(4)=""
+  bCanWalkOffLedges=true
+  bDirectHitWall=true
   GroundSpeed=300.000000
   MaxFallSpeed=500.000000
 }
