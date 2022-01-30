@@ -16,7 +16,7 @@ Game=Glassmutator.GlasshouseGameInfo
 
 At the moment of 2021.11.05 there are no dependencies. Make sure you have `GlassHouse_Tex.utx` in your compile directory's `Texture` folder / install the package.
 
-Use [KFCmdlet and it's batches](https://github.com/InsultingPros/KFCmdlet) for easy compilation.
+Use [KF Compile Tool](https://github.com/InsultingPros/KFCompileTool) for easy compilation.
 
 **EditPackages**
 
