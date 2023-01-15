@@ -1,6 +1,6 @@
 # Glass House
 
-![GitHub all releases](https://img.shields.io/github/downloads/InsultingPros/Glassmutator/total)
+[![GitHub all releases](https://img.shields.io/github/downloads/InsultingPros/Glassmutator/total)](https://github.com/InsultingPros/Glassmutator/releases)
 
 KF Team Deathmatch:
 
